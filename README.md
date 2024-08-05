@@ -5,7 +5,7 @@ This repo is for learning about Kubernetes
 
 + `kubectl version` -- version of Kubernetes running on the nodes.
 
-+ `kubectl get nodes -o wide` -- flavor and version of Operating System on which the Kubernetes nodes are running.
++ `kubectl get nodes -o wide` -- flavor and version of operating system on which the Kubernetes nodes are running.
 
 
 ## References
