@@ -21,6 +21,45 @@ When you install Kubernetes on a System, you are actually installing the followi
 
 + `kubectl get nodes -o wide` -- flavor and version of operating system on which the Kubernetes nodes are running.
 
+## Pods
+Kubernetes does not deploy containers directly on the worker nodes. The containers are encapsulated into a Kubernetes object known as **PODs**. A *POD* is a single instance of an application. A *POD* is the smallest
+object, that you can create in kubernetes.
+
++ `kubectl run nginx --image nginx` -- Deploys a docker container by creating a POD. So, it first creates a POD automatically and deploys an instance of the *nginx* docker image. The application image, in this case the *nginx* image, is downloaded from the docker hub repository.
+
++ `kubectl get pods` -- Lists of avaiable PODs.
+
+## YAML
+
+### Dictionary/Map
+---
+Banana: 
+    Calories: 105
+    Fat: 0.4 g
+    Carbs: 27 g
+---
+
+### Array/List
+---
+Fruits:
+    - Orange
+    - Apple
+    - Banana
+---
+
+
+### Creating Dictionary in Dictionary
+---
+color: Blue
+Model:
+    Name: Corvette
+    Year: 1995
+Transmission: Manual
+Price: $20,000
+---
+
 
 ## References
 1. https://uklabs.kodekloud.com/courses/labs-kubernetes-for-the-absolute-beginners-hands-on/ (Hands on labs on Kubernetes)
+2. https://kubernetes.io/docs/tasks/tools/ (Install Kubectl)
+3. https://minikube.sigs.k8s.io/docs/start/?arch=%2Fmacos%2Fx86-64%2Fstable%2Fbinary+download (Install Minikube)
