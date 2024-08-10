@@ -32,31 +32,31 @@ object, that you can create in kubernetes.
 ## YAML
 
 ### Dictionary/Map
----
+~~~
 Banana: 
     Calories: 105
     Fat: 0.4 g
     Carbs: 27 g
----
+~~~
 
 ### Array/List
----
+~~~
 Fruits:
     - Orange
     - Apple
     - Banana
----
+~~~
 
 
 ### Creating Dictionary in Dictionary
----
+~~~
 color: Blue
 Model:
     Name: Corvette
     Year: 1995
 Transmission: Manual
 Price: $20,000
----
+~~~
 
 
 ## References
