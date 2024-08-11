@@ -89,7 +89,7 @@ spec:
 ~~~
 
 Once the above POD definition file is created, we can run 
-`kubectl create -f pod-definiton.yml`
+`kubectl create -f pod-definiton.yml` OR `kubectl apply -f pod.yaml`
 
 We can get the details of the PODs using `kubectl describe pod myapp-pod`
 
