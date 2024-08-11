@@ -29,6 +29,17 @@ object, that you can create in kubernetes.
 
 + `kubectl get pods` -- Lists of avaiable PODs.
 
+## Minikube
+Single note cluster, often called as local kubernetes. We can run the following commands for minikube:
+
++ `minikube start` -- Starting the minikube cluster
+
++ `minikube stop` -- Stopping the minikube cluster
+
++ `minikube pause` -- Pausing the minikube cluster
+
++ `minikube unpause` -- Unpausing the minikube cluster
+
 ## YAML
 
 ### Dictionary/Map
