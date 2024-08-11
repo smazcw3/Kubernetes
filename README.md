@@ -41,6 +41,7 @@ Single note cluster, often called as local kubernetes. We can run the following 
 + `minikube unpause` -- Unpausing the minikube cluster
 
 ## YAML
+YAML, which stands for *YAML Ain't Markup Language,* is a human-readable data serialization language. It is commonly used to create configuration files and works well with any programming language.
 
 ### Dictionary/Map
 ~~~
