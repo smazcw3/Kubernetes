@@ -1,5 +1,5 @@
 # Kubernetes
-This repo is for learning about Kubernetes.
+This repo is for learning about Kubernetes. **Kubernetes**, aka K8s, is an open source system for automating deployment, scaling, and management of containerized applications.
 
 ## Introduction
 **Kubernetes** is a container orchestration technology used to orchestrate the deployment and management of 100s and 1000s of containers in a clustered environment.
