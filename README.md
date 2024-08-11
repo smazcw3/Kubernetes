@@ -41,7 +41,7 @@ Single note cluster, often called as local kubernetes. We can run the following 
 + `minikube unpause` -- Unpausing the minikube cluster
 
 ## YAML
-YAML, which stands for *YAML Ain't Markup Language,* is a human-readable data serialization language. It is commonly used to create configuration files and works well with any programming language.
+YAML, which stands for *YAML Ain't Markup Language,* is a human-readable data serialization language. It is commonly used to create configuration files and works well with any programming language. Kubernetes uses YAML as inputs for creating of objects such as PODs, replicaSets, deployments, services etc.
 
 ### Dictionary/Map
 ~~~
@@ -69,6 +69,29 @@ Model:
 Transmission: Manual
 Price: $20,000
 ~~~
+
+## YAML in Kubenetes
+We can do POD creation using the following YAML config format:
+
+`pod-definiton.yml`
+~~~
+apiVersion: v1
+kind: Pod
+metadata:
+    name: myapp-pod
+    labels:
+        app: myapp
+        type: front-end
+spec:
+    containers:
+        - name: nginx-container
+          image: nginx
+~~~
+
+Once the above POD definition file is created, we can run 
+`kubectl create -f pod-definiton.yml`
+
+We can get the details of the PODs using `kubectl describe pod myapp-pod`
 
 
 ## References
