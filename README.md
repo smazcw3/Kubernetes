@@ -12,34 +12,6 @@ When you install Kubernetes on a System, you are actually installing the followi
 + `container runtime` -- underlying software that is used to run containers. For example, docker.
 + `kubelet` -- agent that runs on each node in the cluster.
 
-
-## Kube Command-line use
-+ `kubectl cluster-info` -- is used to view information about the cluster.
-+ `kubectl get nodes` -- provides a quick overview of the nodes present in your Kubernetes cluster. It allows you to see each node’s current status, availability, and resource allocation.
-
-+ `kubectl version` -- version of Kubernetes running on the nodes.
-
-+ `kubectl get nodes -o wide` -- flavor and version of operating system on which the Kubernetes nodes are running.
-
-## Pods
-Kubernetes does not deploy containers directly on the worker nodes. The containers are encapsulated into a Kubernetes object known as **PODs**. A *POD* is a single instance of an application. A *POD* is the smallest
-object, that you can create in kubernetes.
-
-+ `kubectl run nginx --image nginx` -- Deploys a docker container by creating a POD. So, it first creates a POD automatically and deploys an instance of the *nginx* docker image. The application image, in this case the *nginx* image, is downloaded from the docker hub repository.
-
-+ `kubectl get pods` -- Lists of avaiable PODs.
-
-## Minikube
-Single note cluster, often called as local kubernetes. We can run the following commands for minikube:
-
-+ `minikube start` -- Starting the minikube cluster
-
-+ `minikube stop` -- Stopping the minikube cluster
-
-+ `minikube pause` -- Pausing the minikube cluster
-
-+ `minikube unpause` -- Unpausing the minikube cluster
-
 ## YAML
 YAML, which stands for *YAML Ain't Markup Language,* is a human-readable data serialization language. It is commonly used to create configuration files and works well with any programming language. Kubernetes uses YAML as inputs for creating of objects such as PODs, replicaSets, deployments, services etc.
 
@@ -59,7 +31,6 @@ Fruits:
     - Banana
 ~~~
 
-
 ### Creating Dictionary in Dictionary
 ~~~
 color: Blue
@@ -70,7 +41,29 @@ Transmission: Manual
 Price: $20,000
 ~~~
 
-## YAML in Kubenetes
+## Kube Command-line use
++ `kubectl cluster-info` -- is used to view information about the cluster.
+
++ `kubectl get nodes` -- provides a quick overview of the nodes present in your Kubernetes cluster. It allows you to see each node’s current status, availability, and resource allocation.
+
++ `kubectl version` -- version of Kubernetes running on the nodes.
+
++ `kubectl get nodes -o wide` -- flavor and version of operating system on which the Kubernetes nodes are running.
+
++ `kubectl get pods -o wide` -- Provides a detail overview od the pods present in our kubernetes cluster.
+
++ `kubectl describe pod webapp` -- Describes the pod with name *webapp*.
+
++ `kubectl delete pod webapp` -- Delete the pod with name *webapp*.
+
+## Pods
+Kubernetes does not deploy containers directly on the worker nodes. The containers are encapsulated into a Kubernetes object known as **PODs**. A *POD* is a single instance of an application. A *POD* is the smallest
+object, that you can create in kubernetes.
+
++ `kubectl run nginx --image nginx` -- Deploys a docker container by creating a POD. So, it first creates a POD automatically and deploys an instance of the *nginx* docker image. The application image, in this case the *nginx* image, is downloaded from the docker hub repository.
+
++ `kubectl get pods` -- Lists of avaiable PODs.
+
 We can do POD creation using the following YAML config format:
 
 `pod-definiton.yml`
@@ -92,6 +85,88 @@ Once the above POD definition file is created, we can run
 `kubectl create -f pod-definiton.yml` OR `kubectl apply -f pod.yaml`
 
 We can get the details of the PODs using `kubectl describe pod myapp-pod`
+
+## Controllers
+Controllers are the brain behind kubernetes. They are the process that monitor the kubenertes objects and act accordingly.
+
+### Replicaion controller
+We now can define the replication controller using YAML config format.
+`rc-definiton.yml`
+~~~
+apiVersion: v1
+kind: ReplicationController
+metadata:
+    name: myapp-rc
+    labels:
+        app: myapp
+        type: front-end
+spec:
+    template:
+        metadata:
+            name: myapp-pod
+            labels:
+                app: myapp
+                type: front-end
+        spec:
+            containers:
+                - name: nginx-container
+                image: nginx
+    
+    replicas: 3
+~~~
+
+Once the above replication controller definition file is created, we can run 
+`kubectl create -f rc-definiton.yml`.
+
+To see the created replication controller, run `kubectl get Replicationcontroller`
+
+### Replica set
+Replicaset is pretty much same as replication controller except for some minor differences. We now can define the replicset using YAML config format.
+
+`replicaset-definiton.yml`
+~~~
+apiVersion: appls/v1
+kind: myapp-replicaset
+metadata:
+    name: myapp-rc
+    labels:
+        app: myapp
+        type: front-end
+spec:
+    template:
+        metadata:
+            name: myapp-pod
+            labels:
+                app: myapp
+                type: front-end
+        spec:
+            containers:
+                - name: nginx-container
+                image: nginx
+    
+    replicas: 3
+    selector: 
+        matchLabels:
+            type: front-end
+~~~
+
+Once the above replicaset definition file is created, we can run 
+`kubectl create -f replicaset-definiton.yml`.
+
+To see the created replicset, run `kubectl get replicaset`.
+
+
+## Minikube
+Single note cluster, often called as local kubernetes. We can run the following commands for minikube:
+
++ `minikube start` -- Starting the minikube cluster
+
++ `minikube stop` -- Stopping the minikube cluster
+
++ `minikube pause` -- Pausing the minikube cluster
+
++ `minikube unpause` -- Unpausing the minikube cluster
+
 
 
 ## References
