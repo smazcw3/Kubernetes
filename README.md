@@ -125,7 +125,7 @@ Replicaset is pretty much same as replication controller except for some minor d
 
 `replicaset-definiton.yml`
 ~~~
-apiVersion: appls/v1
+apiVersion: apps/v1
 kind: myapp-replicaset
 metadata:
     name: myapp-rc
