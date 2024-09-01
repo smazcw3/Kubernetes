@@ -153,10 +153,15 @@ spec:
             type: front-end
 ~~~
 
-Once the above replicaset definition file is created, we can run 
-`kubectl create -f replicaset-definiton.yml`.
+Once the above replicaset definition file is created, we can run `kubectl create -f replicaset-definiton.yml`.
 
-To see the created replicset, run `kubectl get replicaset`.
++ To see the created replicset, run `kubectl get replicaset`.
+
++ To delete the replicaset, run `kubectl delete replicaset myapp-replicaset`
+
++ To replace/update the replicaset, run `kubectl replace -f replicaset-definition.yml`
+
++ To scale the replicaset(increasing the no. of replicas), run `kubectl scale --replicas=6 -f replicaset-defintion`
 
 
 ## Minikube
