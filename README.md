@@ -90,6 +90,9 @@ We can get the details of the PODs using `kubectl describe pod myapp-pod`
 Controllers are the brain behind kubernetes. They are the process that monitor the kubenertes objects and act accordingly.
 
 ### Replicaion controller
+A ReplicationController ensures that a specified number of pod replicas are running at any one time. In other words, a ReplicationController makes sure that a pod or a homogeneous set of pods is always up and available.
+
+
 We now can define the replication controller using YAML config format.
 `rc-definiton.yml`
 ~~~
@@ -173,3 +176,4 @@ Single note cluster, often called as local kubernetes. We can run the following 
 1. https://uklabs.kodekloud.com/courses/labs-kubernetes-for-the-absolute-beginners-hands-on/ (Hands on labs on Kubernetes)
 2. https://kubernetes.io/docs/tasks/tools/ (Install Kubectl)
 3. https://minikube.sigs.k8s.io/docs/start/?arch=%2Fmacos%2Fx86-64%2Fstable%2Fbinary+download (Install Minikube)
+4. https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/ (Understanding Replication controllers)
