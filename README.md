@@ -171,7 +171,6 @@ Single note cluster, often called as local kubernetes. We can run the following 
 + `minikube unpause` -- Unpausing the minikube cluster
 
 
-
 ## References
 1. https://uklabs.kodekloud.com/courses/labs-kubernetes-for-the-absolute-beginners-hands-on/ (Hands on labs on Kubernetes)
 2. https://kubernetes.io/docs/tasks/tools/ (Install Kubectl)
