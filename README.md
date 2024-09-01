@@ -90,7 +90,7 @@ We can get the details of the PODs using `kubectl describe pod myapp-pod`
 ## Controllers
 Controllers are the brain behind kubernetes. They are the process that monitor the kubenertes objects and act accordingly.
 
-### Replicaion controller
+### Replication controller
 A ReplicationController ensures that a specified number of pod replicas are running at any one time. In other words, a ReplicationController makes sure that a pod or a homogeneous set of pods is always up and available.
 
 We now can define the replication controller using YAML config format.
@@ -113,7 +113,7 @@ spec:
         spec:
             containers:
                 - name: nginx-container
-                image: nginx
+                  image: nginx
     
     replicas: 3
 ~~~
@@ -123,8 +123,8 @@ Once the above replication controller definition file is created, we can run
 
 To see the created replication controller, run `kubectl get Replicationcontroller`
 
-### Replica set
-Replicaset is pretty much same as replication controller except for some minor differences. We now can define the replicset using YAML config format.
+### ReplicaSet
+ReplicaSet is pretty much same as replication controller except for some minor differences. We now can define the replicset using YAML config format.
 
 `replicaset-definiton.yml`
 ~~~
