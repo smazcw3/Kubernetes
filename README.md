@@ -4,7 +4,7 @@ This repo is for learning about Kubernetes. **Kubernetes**, aka K8s, is an open 
 ## Introduction
 **Kubernetes** is a container orchestration technology used to orchestrate the deployment and management of 100s and 1000s of containers in a clustered environment.
 
-When you install Kubernetes on a System, you are actually installing the following components.
+When you install Kubernetes on a system, you are actually installing the following components.
 + `API server` -- It acts as the front-end for kubernetes. The users, management devices, Command line interfaces all talk to the API server to interact with the kubernetes cluster.
 + `etcd Key store` -- It is a distributed reliable key-value store used by kubernetes to store all data used to manage the cluster. Think of it this way, when you have multiple nodes and multiple masters in your cluster, etcd stores all that information on all the nodes in the cluster in a distributed manner.
 + `scheduler` -- It is responsible for distributing work or containers across multiple nodes. It looks for newly created containers and assigns them to Nodes.
@@ -82,7 +82,8 @@ spec:
 ~~~
 
 Once the above POD definition file is created, we can run 
-`kubectl create -f pod-definiton.yml` OR `kubectl apply -f pod.yaml`
++ `kubectl create -f pod-definiton.yml` OR 
++ `kubectl apply -f pod.yaml`
 
 We can get the details of the PODs using `kubectl describe pod myapp-pod`
 
@@ -91,7 +92,6 @@ Controllers are the brain behind kubernetes. They are the process that monitor t
 
 ### Replicaion controller
 A ReplicationController ensures that a specified number of pod replicas are running at any one time. In other words, a ReplicationController makes sure that a pod or a homogeneous set of pods is always up and available.
-
 
 We now can define the replication controller using YAML config format.
 `rc-definiton.yml`
@@ -145,7 +145,7 @@ spec:
         spec:
             containers:
                 - name: nginx-container
-                image: nginx
+                  image: nginx
     
     replicas: 3
     selector: 
