@@ -62,7 +62,7 @@ object, that you can create in kubernetes.
 
 + `kubectl run nginx --image nginx` -- Deploys a docker container by creating a POD. So, it first creates a POD automatically and deploys an instance of the *nginx* docker image. The application image, in this case the *nginx* image, is downloaded from the docker hub repository.
 
-+ `kubectl get pods` -- Lists of avaiable PODs.
++ `kubectl get pods` -- Lists of available PODs.
 
 We can do POD creation using the following YAML config format:
 
@@ -157,11 +157,13 @@ Once the above replicaset definition file is created, we can run `kubectl create
 
 + To see the created replicset, run `kubectl get replicaset`.
 
-+ To delete the replicaset, run `kubectl delete replicaset myapp-replicaset`
++ To delete the replicaset, run `kubectl delete replicaset myapp-replicaset` OR `kubectl delete rs myapp-replicaset`.
 
-+ To replace/update the replicaset, run `kubectl replace -f replicaset-definition.yml`
++ To replace/update the replicaset, run `kubectl replace -f replicaset-definition.yml`.
 
-+ To scale the replicaset(increasing the no. of replicas), run `kubectl scale --replicas=6 -f replicaset-defintion`
++ To scale the replicaset(increasing the no. of replicas), run `kubectl scale rs new-replica-set --replicas=5`.
+
++ To edit the replicaset, run `kubectl edit rs myapp-replicaset`.
 
 
 ## Minikube
