@@ -57,8 +57,8 @@ Price: $20,000
 + `kubectl delete pod webapp` -- Delete the pod with name *webapp*.
 
 ## Pods
-Kubernetes does not deploy containers directly on the worker nodes. The containers are encapsulated into a Kubernetes object known as **PODs**. A *POD* is a single instance of an application. A *POD* is the smallest
-object, that you can create in kubernetes.
+Kubernetes does not deploy containers directly on the worker nodes. The containers are encapsulated into a Kubernetes object known as **PODs**. A *POD* is a single instance of an application. A *POD* is the smallest object, that you can create in kubernetes.
+Each container is encapsulated in POD. Multiple such PODs are deployed using replication controllers or replicasets.
 
 + `kubectl run nginx --image nginx` -- Deploys a docker container by creating a POD. So, it first creates a POD automatically and deploys an instance of the *nginx* docker image. The application image, in this case the *nginx* image, is downloaded from the docker hub repository.
 
@@ -165,6 +165,41 @@ Once the above replicaset definition file is created, we can run `kubectl create
 
 + To edit the replicaset, run `kubectl edit rs myapp-replicaset`.
 
+
+### Deployment
+We can create the deployment component(kubernets object) by defining the below file:
+
+`deployment-definiton.yml`
+~~~
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: myapp-deployment
+    labels:
+        app: myapp
+        type: front-end
+spec:
+    template:
+        metadata:
+            name: myapp-pod
+            labels:
+                app: myapp
+                type: front-end
+        spec:
+            containers:
+                - name: nginx-container
+                  image: nginx
+    
+    replicas: 3
+    selector: 
+        matchLabels:
+            type: front-end
+~~~
+
+Once the above deployment definition file is created, we can run 
+`kubectl create -f deployment-definiton.yml`.
+
++ To see the created replicset, run `kubectl get deployments`.
 
 ## Minikube
 Single note cluster, often called as local kubernetes. We can run the following commands for minikube:
