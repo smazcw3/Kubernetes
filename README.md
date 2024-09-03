@@ -199,7 +199,14 @@ spec:
 Once the above deployment definition file is created, we can run 
 `kubectl create -f deployment-definiton.yml`.
 
-+ To see the created replicset, run `kubectl get deployments`.
++ To see the created deployemnts, run `kubectl get deployments` OR `kubectl get deploy`
+
++ new Deployment with the below attributes using your own deployment definition file:
+    * `Name: httpd-frontend`;
+    * `Replicas: 3`;
+    * `Image: httpd:2.4-alpine`
+
+    `kubectl create deployment httpd-frontend --image=httpd:2.4-alpine --replicas=3`
 
 ## Minikube
 Single note cluster, often called as local kubernetes. We can run the following commands for minikube:
